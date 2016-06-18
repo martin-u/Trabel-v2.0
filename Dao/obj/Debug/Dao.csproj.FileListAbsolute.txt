@@ -1,0 +1,7 @@
+C:\Users\muriarte\Documents\GitHub\Trabel v2.0\Dao\bin\Debug\Dao.dll
+C:\Users\muriarte\Documents\GitHub\Trabel v2.0\Dao\bin\Debug\Dao.pdb
+C:\Users\muriarte\Documents\GitHub\Trabel v2.0\Dao\bin\Debug\Entidades.dll
+C:\Users\muriarte\Documents\GitHub\Trabel v2.0\Dao\bin\Debug\Entidades.pdb
+C:\Users\muriarte\Documents\GitHub\Trabel v2.0\Dao\obj\Debug\Dao.csprojResolveAssemblyReference.cache
+C:\Users\muriarte\Documents\GitHub\Trabel v2.0\Dao\obj\Debug\Dao.dll
+C:\Users\muriarte\Documents\GitHub\Trabel v2.0\Dao\obj\Debug\Dao.pdb
