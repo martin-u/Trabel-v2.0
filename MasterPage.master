@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <link href='https://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="/resources/demos/style.css">
 
 
     <title></title>
@@ -41,7 +42,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a runat="server" id="mnuAlumno" href="Form_Viaje.aspx">Formulario Viaje</a></li>                 
+                    <li><a runat="server" id="wf_viaje" href="Form_Viaje.aspx">Formulario Viaje</a></li>
+                    <li><a runat="server" id="wf_reserva" href="Form_Reserva.aspx">Formulario Reserva</a></li>                  
                     
                 </ul>
             </div>
@@ -70,6 +72,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="Bootstrap/Scripts/bootstrap.min.js"></script> 
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
      <asp:ContentPlaceHolder ID="ContentPlace_Pie" runat="server">
 
     </asp:ContentPlaceHolder>     

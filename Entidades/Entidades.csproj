@@ -42,9 +42,11 @@
     <Compile Include="CategoriaEntidad.cs" />
     <Compile Include="CiudadDestinoEntidad.cs" />
     <Compile Include="CiudadOrigenEntidad.cs" />
+    <Compile Include="DetalleReservaEntidad.cs" />
     <Compile Include="EstadoEntidad.cs" />
     <Compile Include="HotelEntidad.cs" />
     <Compile Include="PaisEntidad.cs" />
+    <Compile Include="ReservaEntidad.cs" />
     <Compile Include="TemporadaEntidad.cs" />
     <Compile Include="TipoDocumentoEntidad.cs" />
     <Compile Include="TransporteEntidad.cs" />

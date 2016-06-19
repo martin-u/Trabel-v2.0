@@ -146,7 +146,7 @@ public partial class Form_Viaje : System.Web.UI.Page
         viaje.idCiudadDestino = CiudadDestinoDao.nombreCiudad(txt_destino.Text);
         viaje.idCiudadOrigen = CiudadOrigenDao.nombreCiudad(txt_origen.Text);
         viaje.fechaDesde = DateTime.Parse(txt_fechaDesde.Text);
-        viaje.fechaHasta = DateTime.Parse(txt_fechaHasta.Text);        
+        viaje.fechaHasta = DateTime.Parse(txt_fechaHasta.Text);
         viaje.soloIda = ckb_soloIda.Checked;
         viaje.precioTotal = float.Parse(txt_precio.Text);
         viaje.idTransporte = int.Parse(ddl_transporte.SelectedValue);

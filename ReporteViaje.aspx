@@ -36,7 +36,7 @@ c) Fecha mayores concurrencias--%>
             <asp:BoundField DataField="idVIaje" HeaderText="Nro Viaje" />
             <asp:BoundField DataField="fechaDesde" HeaderText="Fecha" />
             <asp:BoundField DataField="soloIda" HeaderText="Solo ida" />
-            <asp:BoundField DataField="nombreDestino" HeaderText="Destino" />
+            <asp:BoundField DataField="nombre" HeaderText="Destino" />
             <asp:BoundField DataField="nombre" HeaderText="Transporte" />
         </Columns>
 

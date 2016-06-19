@@ -42,8 +42,13 @@
     <Compile Include="CiudadDestinoDao.cs" />
     <Compile Include="CiudadOrigenDao.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="EstadoDao.cs" />
+    <Compile Include="HotelDao.cs" />
+    <Compile Include="ReservaDao.cs" />
     <Compile Include="TemporadaDao.cs" />
+    <Compile Include="TipoDocumentoDao.cs" />
     <Compile Include="TransporteDao.cs" />
+    <Compile Include="TuristaDao.cs" />
     <Compile Include="ViajeDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

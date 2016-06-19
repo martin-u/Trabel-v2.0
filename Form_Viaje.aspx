@@ -19,6 +19,8 @@
         <asp:TextBox runat="server" ID="txt_destino" CssClass="form-control" />
         <asp:RequiredFieldValidator ErrorMessage="Destino obligatorio" Text="*" ID="rfv_destino" ValidationGroup="A" ControlToValidate="txt_destino" runat="server" />
     </div>
+
+
     <div>
         <label>Fecha Desde</label>
         <asp:TextBox CssClass="form-control" ID="txt_fechaDesde" runat="server"></asp:TextBox>
@@ -26,20 +28,14 @@
         <asp:CompareValidator Type="Date" Operator="DataTypeCheck" ID="cv_fechaDesde" runat="server" ValidationGroup="A" ControlToValidate="txt_fechaDesde" ErrorMessage="Formato de fecha Desde invalida" Text="*" />
         <asp:CompareValidator Type="Date" Operator="LessThan" ID="cv2_fechaDesde" runat="server" ValidationGroup="A" ControlToCompare="txt_fechaHasta" ControlToValidate="txt_fechaDesde" ErrorMessage="Tipo de fecha Desde inconsistente" Text="*" />
         <br />
-        <%--<span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </span> --%>
+        
         <label>Fecha Hasta</label>
-        <asp:TextBox CssClass="form-control" ID="txt_fechaHasta" runat="server"></asp:TextBox>
+        <asp:TextBox CssClass="form-control ui-datepicker-buttonpane" ID="txt_fechaHasta" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ErrorMessage="Fecha Desde obligatorio" Text="*" ID="rfv_fechaHasta" ValidationGroup="A" ControlToValidate="txt_fechaHasta" runat="server" />
         <asp:CompareValidator Type="Date" Operator="DataTypeCheck" ID="cv_fechaHasta" runat="server" ValidationGroup="A" ControlToValidate="txt_fechaHasta" ErrorMessage="Formato de fecha Hasta invalida" Text="*" />
         <asp:CompareValidator Type="Date" Operator="GreaterThan" ID="cv2_fechaHasta" runat="server" ValidationGroup="A" ControlToCompare="txt_fechaDesde" ControlToValidate="txt_fechaHasta" ErrorMessage="Tipo de fecha Hasta inconsistente" Text="*" />
+</div>
 
-
-        <%--<span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </span> --%>
-    </div>
 
     <div>
         <asp:CheckBox Text="Solo Ida" runat="server" ID="ckb_soloIda" CssClass="form-control" />
@@ -88,19 +84,10 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlace_Pie" runat="Server">
-    <script type="text/javascript">
-        $(function () {
-            $('#div_fechaDesde').datetimepicker();
-            $('#div_fechaHasta').datetimepicker({
-                useCurrent: false //Important! See issue #1075
-            });
-            $("#div_fechaDesde").on("dp.change", function (e) {
-                $('#div_fechaHasta').data("DateTimePicker").minDate(e.date);
-            });
-            $("#div_fechaHasta").on("dp.change", function (e) {
-                $('#div_fechaDesde').data("DateTimePicker").maxDate(e.date);
-            });
-        });
-    </script>
+       <script>
+           $(function () {
+               $("#txt_fechaDesde2").datepicker();
+           });
+  </script>
 </asp:Content>
 

@@ -110,7 +110,7 @@ namespace Dao
         public static List<ViajeEntidad> reporteViaje(int transporte, bool ida, DateTime fecha, int destino)
         {
             List<ViajeEntidad> listaViaje = new List<ViajeEntidad>();
-            string query = "SELECT * FROM Viaje v JOIN CiudadDestino c ON (v.idCiudadDestino = c.idCiudadDestino) WHERE idCiudadDestino = @destino";
+            string query = "SELECT v.idCiudadDestino, v.soloIda, v.fechaDesde, c.idCiudadDestino, c.nombreDestino FROM Viaje v JOIN CiudadDestino c ON (v.idCiudadDestino = c.idCiudadDestino) WHERE v.idCiudadDestino = -1 OR v.idCiudadDestino = @destino";
             SqlCommand cmd = new SqlCommand(query, obtenerDB());
             cmd.Parameters.AddWithValue(@"destino", destino);
             SqlDataReader dr = cmd.ExecuteReader();
