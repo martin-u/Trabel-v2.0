@@ -13,10 +13,10 @@ namespace Entidades
         public DateTime fechaReserva { get; set; }
         public int idEstado { get; set; }
         public DateTime fechaIda { get; set; }
-        public DateTime fechaVuelta { get; set; }
+        public DateTime? fechaVuelta { get; set; }
         public float precioTotal { get; set; }
         public int idViaje { get; set; }
         public int idHotel { get; set; }
-        public int idDetalleReserva { get; set; }
+        //public int idDetalleReserva { get; set; }
     }
 }

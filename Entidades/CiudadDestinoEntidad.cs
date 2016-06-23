@@ -11,5 +11,6 @@ namespace Entidades
         public int idCiudadDestino { get; set; }
         public string nombreDestino { get; set; }
         public int idPais { get; set; }
+        public string nombreOrigen { get; set; }
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="TipoDocumentoDao.cs" />
     <Compile Include="TransporteDao.cs" />
     <Compile Include="TuristaDao.cs" />
+    <Compile Include="UsuarioDao.cs" />
     <Compile Include="ViajeDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -14,8 +14,9 @@ namespace Dao
 
         public static void registrarViaje(ViajeEntidad viaje)
         {
-            string query = "INSERT INTO Viaje(idCiudadOrigen, idCiudadDestino, fechaDesde, fechaHasta,soloIda,precioTotal,idTransporte,idTemporada) VALUES(@origen, @destino, @fDesde,@fHasta,@ida,@precio,@trans,@temp)";
+            string query = "INSERT INTO Viaje(nombreViaje, idCiudadOrigen, idCiudadDestino, fechaDesde, fechaHasta,soloIda,precioTotal,idTransporte,idTemporada) VALUES(@nom, @origen, @destino, @fDesde,@fHasta,@ida,@precio,@trans,@temp)";
             SqlCommand cmd = new SqlCommand(query, obtenerDB());
+            cmd.Parameters.AddWithValue(@"nom", viaje.nombreViaje);
             cmd.Parameters.AddWithValue(@"origen", viaje.idCiudadOrigen);
             cmd.Parameters.AddWithValue(@"destino", viaje.idCiudadDestino);
             cmd.Parameters.AddWithValue(@"fDesde", viaje.fechaDesde);
@@ -40,9 +41,13 @@ namespace Dao
             {
                 ViajeEntidad viaje = new ViajeEntidad();
                 viaje.idViaje = int.Parse(dr["idViaje"].ToString());
+                viaje.nombreViaje = dr["nombreViaje"].ToString();
                 viaje.origen = dr["nombreOrigen"].ToString();
                 viaje.destino = dr["nombreDestino"].ToString();
                 viaje.fechaDesde = DateTime.Parse(dr["fechaDesde"].ToString());
+                viaje.fechaHasta = DateTime.Parse(dr["fechaHasta"].ToString());
+                viaje.precioTotal = float.Parse(dr["precioTotal"].ToString());
+                viaje.soloIda = bool.Parse(dr["soloIda"].ToString());
                 listaViaje.Add(viaje);
             }
             dr.Close();
@@ -107,28 +112,97 @@ namespace Dao
             cmd.Connection.Close();
         }
 
-        public static List<ViajeEntidad> reporteViaje(int transporte, bool ida, DateTime fecha, int destino)
+        public static List<ViajeEntidad> reporteViaje(int transporte, DateTime? fecha, int destino)
         {
+            
             List<ViajeEntidad> listaViaje = new List<ViajeEntidad>();
-            string query = "SELECT v.idCiudadDestino, v.soloIda, v.fechaDesde, c.idCiudadDestino, c.nombreDestino FROM Viaje v JOIN CiudadDestino c ON (v.idCiudadDestino = c.idCiudadDestino) WHERE v.idCiudadDestino = -1 OR v.idCiudadDestino = @destino";
+            string query = "SELECT v.idViaje, v.idCiudadDestino, v.idTransporte, v.fechaDesde, c.idCiudadDestino, c.nombreDestino, t.nombreTransporte, t.idTransporte FROM Viaje v JOIN CiudadDestino c ON (v.idCiudadDestino = c.idCiudadDestino) JOIN Transporte t ON t.idTransporte = v.idTransporte WHERE c.idCiudadDestino LIKE @destino AND v.idTransporte LIKE @transporte AND v.fechaDesde LIKE @fecha";
             SqlCommand cmd = new SqlCommand(query, obtenerDB());
-            cmd.Parameters.AddWithValue(@"destino", destino);
+            if (destino > 0)
+            {
+                cmd.Parameters.AddWithValue("@destino", destino);
+            }
+            else {
+                cmd.Parameters.AddWithValue("@destino", "%");
+            }
+            if (fecha == null)
+            {
+                cmd.Parameters.AddWithValue("@fecha", '%');
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@fecha", fecha);
+            }
+            if (transporte == 0)
+            {
+                cmd.Parameters.AddWithValue("@transporte", "%");
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@transporte", transporte);
+            }
             SqlDataReader dr = cmd.ExecuteReader();
-
-            while (dr.Read())
+            while(dr.Read())
             {
                 ViajeEntidad viaje = new ViajeEntidad();
                 viaje.idViaje = int.Parse(dr["idViaje"].ToString());
-                viaje.idTransporte = int.Parse(dr["idTransporte"].ToString());
-                viaje.soloIda = bool.Parse(dr["soloIda"].ToString());
+                viaje.transporte = dr["nombreTransporte"].ToString();                
                 viaje.fechaDesde = DateTime.Parse(dr["fechaDesde"].ToString());
-                viaje.idCiudadDestino = int.Parse(dr["idCiudadDestino"].ToString());
+                viaje.destino = dr["nombreDestino"].ToString();
                 listaViaje.Add(viaje);
             }
             dr.Close();
             cmd.Connection.Close();
             return listaViaje;
 
+        }
+
+        public static ViajeEntidad consultarViajeSeleccionado(int id)
+        {
+            ViajeEntidad viaje = new ViajeEntidad();
+            //List<HotelEntidad> listaHotel = new List<HotelEntidad>();
+            string query = "SELECT * FROM Viaje where idViaje = @viaje";
+            SqlCommand cmd = new SqlCommand(query, obtenerDB());
+            cmd.Parameters.AddWithValue(@"viaje", id);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                viaje.idViaje = int.Parse(dr["idViaje"].ToString());
+                viaje.precioTotal = float.Parse(dr["precioTotal"].ToString());
+                viaje.soloIda = bool.Parse(dr["soloIda"].ToString());
+                viaje.fechaDesde = DateTime.Parse(dr["fechaDesde"].ToString());
+                viaje.fechaHasta = DateTime.Parse(dr["fechaHasta"].ToString());
+                viaje.idTemporada = int.Parse(dr["idTemporada"].ToString());
+            }
+            dr.Close();
+            cmd.Connection.Close();
+
+            return viaje;
+        }
+
+        public static List<ViajeEntidad> consultarListaViajeSeleccionado(int id)
+        {
+            List<ViajeEntidad> listaViaje = new List<ViajeEntidad>();
+            //List<HotelEntidad> listaHotel = new List<HotelEntidad>();
+            string query = "SELECT * FROM Viaje where idViaje = @viaje";
+            SqlCommand cmd = new SqlCommand(query, obtenerDB());
+            cmd.Parameters.AddWithValue(@"viaje", id);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                ViajeEntidad viaje = new ViajeEntidad();
+                viaje.idViaje = int.Parse(dr["idViaje"].ToString());
+                viaje.precioTotal = float.Parse(dr["precioTotal"].ToString());
+                viaje.soloIda = bool.Parse(dr["soloIda"].ToString());
+                viaje.fechaDesde = DateTime.Parse(dr["fechaDesde"].ToString());
+                viaje.fechaHasta = DateTime.Parse(dr["fechaHasta"].ToString());
+            }
+            dr.Close();
+            cmd.Connection.Close();
+
+            return listaViaje;
         }
 
     }

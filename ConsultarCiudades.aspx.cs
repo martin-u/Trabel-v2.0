@@ -5,9 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dao;
-using Entidades;
 
-public partial class _Default : System.Web.UI.Page
+public partial class Ciudades : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -28,5 +27,15 @@ public partial class _Default : System.Web.UI.Page
             //Usuario Anónimo
             Response.Redirect("InicioSesion.aspx");
         }
+        if (!Page.IsPostBack)
+        {
+            cargarGrillaCiudades();
+        }
+    }
+
+    protected void cargarGrillaCiudades()
+    {
+        gv_ciudades.DataSource = CiudadDestinoDao.consultarCiudades();
+        gv_ciudades.DataBind();
     }
 }

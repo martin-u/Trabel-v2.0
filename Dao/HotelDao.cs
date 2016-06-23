@@ -29,5 +29,25 @@ namespace Dao
 
             return listaHotel;
         }
+
+        public static HotelEntidad consultarHotelXID(int id)
+        {
+            HotelEntidad hotel = new HotelEntidad();
+            //List<HotelEntidad> listaHotel = new List<HotelEntidad>();
+            string query = "SELECT * FROM Hotel where idHotel = @hotel";
+            SqlCommand cmd = new SqlCommand(query, obtenerDB());
+            cmd.Parameters.AddWithValue(@"hotel", id);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {                
+                hotel.idHotel = int.Parse(dr["idHotel"].ToString());
+                hotel.precio = float.Parse(dr["precio"].ToString());                
+            }
+            dr.Close();
+            cmd.Connection.Close();
+
+            return hotel;
+        }
     }
 }

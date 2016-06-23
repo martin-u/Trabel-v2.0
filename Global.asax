@@ -24,6 +24,8 @@
     void Session_Start(object sender, EventArgs e) 
     {
         // Código que se ejecuta al iniciarse una nueva sesión
+        Session["Usuario"] = "";
+        Session["Roles"] = new List<string>();
 
     }
 

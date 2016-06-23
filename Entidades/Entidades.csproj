@@ -46,11 +46,13 @@
     <Compile Include="EstadoEntidad.cs" />
     <Compile Include="HotelEntidad.cs" />
     <Compile Include="PaisEntidad.cs" />
+    <Compile Include="PermisoEntidad.cs" />
     <Compile Include="ReservaEntidad.cs" />
     <Compile Include="TemporadaEntidad.cs" />
     <Compile Include="TipoDocumentoEntidad.cs" />
     <Compile Include="TransporteEntidad.cs" />
     <Compile Include="TuristaEntidad.cs" />
+    <Compile Include="UsuarioEntidad.cs" />
     <Compile Include="ViajeEntidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

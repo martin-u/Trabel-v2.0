@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    
+
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="Bootstrap/Content/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -21,18 +21,18 @@
     <![endif]-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="/resources/demos/style.css">
 
 
     <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header" >
+            <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -42,9 +42,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li><a runat="server" id="wf_iniciarSesion" href="InicioSesion.aspx">Iniciar sesion</a></li>
                     <li><a runat="server" id="wf_viaje" href="Form_Viaje.aspx">Formulario Viaje</a></li>
-                    <li><a runat="server" id="wf_reserva" href="Form_Reserva.aspx">Formulario Reserva</a></li>                  
-                    
+                    <li><a runat="server" id="wf_reporte" href="ReporteViaje.aspx">Reporte Viaje</a></li>
+                    <li><a runat="server" id="wf_reserva" href="Form_Reserva.aspx">Formulario Reserva</a></li>
+                    <li><a runat="server" id="A2" href="ConsultarCiudades.aspx">Consultar Ciudades</a></li>
+                    <li><a runat="server" id="A1" href="ConsultarViaje.aspx">Consultar Viaje</a></li>
+                    <li><a runat="server" id="wf_cerrarSesion" href="Cerrar session.aspx">Cerrar sesion</a></li>
+
                 </ul>
             </div>
         </div>
@@ -65,19 +70,18 @@
             </div>
             <div class="col-md-2"></div>
         </div>
-    </div>    
-   
-    
-       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="Bootstrap/Scripts/bootstrap.min.js"></script> 
+    <script src="Bootstrap/Scripts/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-     <asp:ContentPlaceHolder ID="ContentPlace_Pie" runat="server">
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <asp:ContentPlaceHolder ID="ContentPlace_Pie" runat="server">
+    </asp:ContentPlaceHolder>
 
-    </asp:ContentPlaceHolder>     
-    
 </body>
 
 </html>

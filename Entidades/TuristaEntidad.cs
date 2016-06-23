@@ -10,12 +10,14 @@ namespace Entidades
     {
         public int idTipoDocumento { get; set; }
         public string nomTipoDoc { get; set; }
-        public int DNI { get; set; }
+        public int? DNI { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
-        public int telefono { get; set; }
-        public string email { get; set; }
+        //public int telefono { get; set; }
+        //public string email { get; set; }
         public DateTime fechaNacimiento { get; set; }
+        public int idReserva { get; set; }
+        public int idTurista { get; set; }
 
     }
 }

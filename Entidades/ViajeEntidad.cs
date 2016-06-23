@@ -20,5 +20,8 @@ namespace Entidades
         public int idTemporada { get; set; }
         public string origen { get; set; }
         public string destino { get; set; }
+        public string transporte { get; set; }
+        public string nombreViaje { get; set; }
+        
     }
 }

@@ -48,5 +48,25 @@ namespace Dao
             cmd.Connection.Close();
             return id;
         }
+
+        public static List<CiudadDestinoEntidad> consultarCiudades()
+        {
+            List<CiudadDestinoEntidad> listaCiudad = new List<CiudadDestinoEntidad>();
+            string query = "Select * FROM CiudadOrigen o JOIN CiudadDestino d ON o.nombreOrigen = d.nombreDestino";
+            SqlCommand cmd = new SqlCommand(query, obtenerDB());
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                CiudadDestinoEntidad ciudad = new CiudadDestinoEntidad();
+                ciudad.idCiudadDestino = int.Parse(dr["idCiudadDestino"].ToString());
+                ciudad.nombreDestino = dr["nombreDestino"].ToString();
+                ciudad.nombreOrigen = dr["nombreOrigen"].ToString();
+                listaCiudad.Add(ciudad);
+            }
+            dr.Close();
+            cmd.Connection.Close();
+            return listaCiudad;
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Entidades
     public class TransporteEntidad
     {
         public int idTransporte { get; set; }
-        public string nombre { get; set; }
+        public string nombreTransporte { get; set; }
         public string empresa { get; set; }
     }
 }

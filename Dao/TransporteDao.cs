@@ -21,7 +21,7 @@ namespace Dao
             {
                 TransporteEntidad transporte = new TransporteEntidad();
                 transporte.idTransporte = int.Parse(dr["idTransporte"].ToString());
-                transporte.nombre = dr["nombre"].ToString();
+                transporte.nombreTransporte = dr["nombreTransporte"].ToString();
                 transporte.empresa = dr["empresa"].ToString();
                 TransporteEntidad.Add(transporte);
             }
